@@ -87,10 +87,9 @@ def claim_egg_reward(token, egg_uid):
     response = requests.post(url, headers=headers, json=data)
     return response.json()
 
-def main():
-    query_id = input("Enter your Query ID: ")
+def main(query_id):
     token = login(query_id)
-    console.print(watermark(f"logging in account with id : {query_id} 🔑", "INFO", "yellow"))
+    console.print(watermark(f"Logging in account with ID: {query_id} 🔑", "INFO", "yellow"))
     if not token:
         console.print(watermark("Failed to retrieve token. 🚫", "ERROR", "red"))
         return
@@ -108,18 +107,24 @@ def main():
     time.sleep(5)
 
 if __name__ == "__main__":
+    ab = pyfiglet.figlet_format("Digital Miners")
+    print(a_bSa + ab)
+    print(Fore.GREEN + " ✯ KITTY SCRIPT BOT ✯ ")
+    print(Fore.RED + f"TELEGRAM GROUP {Fore.GREEN}✯ @DigitalMiners777 ✯")
+    print(Fore.YELLOW + " ✯ DEVELOPED BY @Anaik7777 ✯ ")
+    print(f"{Fore.WHITE}✯" * 60)
+    print("✯ 𝑰𝒇 𝒀𝒐𝒖 𝑯𝒂𝒗𝒆 𝒂𝒏𝒚 𝑰𝒔𝒔𝒖𝒆, 𝑷𝒍𝒆𝒂𝒔𝒆 𝑽𝒊𝒔𝒊𝒕 𝑮𝒓𝒐𝒖𝒑 𝑨𝒏𝒅 𝑫𝒊𝒔𝒔𝒄𝒖𝒔𝒔 ✯")
+    print(f"{Fore.WHITE}✯" * 60)
+
+    query_id = input("Enter your Query ID: ")
+
     while True:
         try:
-            ab = pyfiglet.figlet_format("Digital Miners")
-            print(a_bSa + ab)
-            print(Fore.GREEN + " ✯ KITTY SCRIPT BOT ✯ ")
-            print(Fore.RED + f"TELEGRAM GROUP {Fore.GREEN}✯ @DigitalMiners777 ✯")
-            print(Fore.YELLOW + " ✯ DEVELOPED BY @Anaik7777 ✯ ")
-            print(f"{Fore.WHITE}✯" * 60)
-            print("✯ 𝑰𝒇 𝒀𝒐𝒖 𝑯𝒂𝒗𝒆 𝒂𝒏𝒚 𝑰𝒔𝒔𝒖𝒔𝒆, 𝑷𝒍𝒆𝒂𝒔𝒆 𝑽𝒊𝒔𝒊𝒕 𝑮𝒓𝒐𝒖𝒑 𝑨𝒏𝒅 𝑫𝒊𝒔𝒔𝒄𝒖𝒔𝒔 ✯")
-            print(f"{Fore.WHITE}✯" * 60)
-            main()
-            console.print(watermark("Sleeping for 3 minutes... 😴", "INFO", "yellow"))
-            time.sleep(180)
+            main(query_id)
+            console.print(watermark("Waiting 1 minute before restarting... ⏳", "INFO", "yellow"))
+            for remaining in range(59, -1, -1):
+                console.print(f"[bold cyan]Restarting in: {remaining} seconds...[/]", end="\r")
+                time.sleep(1)
+            print()
         except Exception as e:
             console.print(watermark(f"An error occurred: {e} ⚠️", "ERROR", "red"))
